@@ -1,0 +1,77 @@
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<style>
+    h1{text-align: center}
+    input[type=submit] {
+        width: 33.3%;
+        height: 350px;
+        background-color: orange;
+        color: white;
+        /*padding: 14px 20px;*/
+        /*margin: 8px 0;*/
+        /*border: none;*/
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    {
+        transform: rotate3d();
+    }
+    input[value=Plumming]{
+        text-decoration-color: #fe5900;
+    }
+
+</style>
+
+<h1>Choose Your Category</h1>
+<form action="/workers" method="GET">
+    <!--    <div class = "portfolio-img-background">-->
+    <!--        <input type="submit" name="skill" class = "btn" style="background-image: url(img/Bed2.jpg)" value="" style="font-family: 'Arial Black'">-->
+    <!--    </div>-->
+    <!--    <div class = "logo-wrapper">-->
+    <!--        <h1 class = "category-title"> Bed Assembly </h1>-->
+    <!--    </div>-->
+
+    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Bed2.jpg)" value="" style="font-family: 'Arial Black'"> <!--  THIS LINE IS WHERE THE BUTTON IS&ndash;&gt;&ndash;&gt;-->
+    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Plumming.jpg)" value="Plumbing">
+    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Electrical.jpg)" value="Electrical">
+    <br>
+    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Moving.jpg)" value="Moving">
+    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Yardwork.jpg)" value="Yardwork">
+    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Cleaning.png)" value="Cleaning">
+    <br>
+    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Painting.jpg)" value="Painting">
+    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Mounting.jpg)" value="Mounting">
+    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Desk.jpg)" value="Desk Assembly">
+</form>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!--<form action="/workers" method="GET">-->
+<!--    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Bed2.jpg)" value="Bed Assembly"> &lt;!&ndash;THIS LINE IS WHERE THE BUTTON IS&ndash;&gt;-->
+<!--    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Plumming.jpg)" value="Plumbing">-->
+<!--    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Electrical.jpg)" value="Electrical">-->
+<!--    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Moving.jpg)" value="Moving">-->
+<!--    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Yardwork.jpg)" value="Yardwork">-->
+<!--    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Cleaning.png)" value="Cleaning">-->
+<!--    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Painting2.jpeg)" value="Painting">-->
+<!--    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Mounting3.jpg)" value="Mounting">-->
+<!--    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Desk3.jpg)" value="Desk Assembly">-->
+<!--</form>-->
+<!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
+
+<% workers.forEach(worker => { %>
+<!--    <h1 style="text-align:center">Defter Profile Card</h1>-->
+    <div class="card">
+        <img src="../img/<%= worker.skill %>.jpg" style="width:100%">
+        <h1 style="text-align:center"><%= worker.firstname %> <%= worker.lastname %></h1>
+        <p class="title"><%= worker.skill %></p>
+        <p><%= worker.address %></p>
+        <p><%= worker.phone %></p>
+        <p><%= worker.email %></p>
+
+        <div style="margin: 24px 0;">
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+        <p><button>Contact</button></p>
+    </div>
+<% }) %>

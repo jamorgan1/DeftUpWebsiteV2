@@ -1,0 +1,27 @@
+
+<!--<form action="/workers" method="GET">-->
+<!--    <input type="submit" class = "btn" style="background-image: url(../img/Bed2.jpg)"> &lt;!&ndash;THIS LINE IS WHERE THE BUTTON IS&ndash;&gt;-->
+<!--    <input type="submit" class = "btn" style="background-image: url(../img/Plumming.jpg)">-->
+<!--    <input type="submit" class = "btn" style="background-image: url(../img/Electrical.jpg)">-->
+<!--    <input type="submit" class = "btn" style="background-image: url(../img/Moving.jpg)" value="Moving">-->
+<!--    <input type="submit" class = "btn" style="background-image: url(../img/Yardwork.jpg)">-->
+<!--    <input type="submit" class = "btn" style="background-image: url(../img/Cleaning.png)">-->
+<!--    <input type="submit" class = "btn" style="background-image: url(../img/Painting2.jpeg)">-->
+<!--    <input type="submit" class = "btn" style="background-image: url(../img/Mounting3.jpg)">-->
+<!--    <input type="submit" class = "btn" style="background-image: url(../img/Desk3.jpg)">-->
+<!--</form>-->
+
+<script>
+    const portfolioItems = document.querySelectorAll('.portfolio-item-wrapper')
+    portfolioItems.forEach(portfolioItem => {
+        portfolioItem.addEventListener('mouseover', () =>{
+            //console.log(portfolioItem.childNodes[1].classList);
+            portfolioItem.childNodes[1].classList.add('img-darken');
+        })
+        portfolioItem.addEventListener('mouseout', () =>{
+            //console.log(portfolioItem.childNodes[1].classList);
+            portfolioItem.childNodes[1].classList.remove('img-darken');
+        })
+    })
+</script>
+
