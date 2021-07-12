@@ -76,7 +76,7 @@ app.get('/Categories', checkNotAuthenticated, (req, res) => {
 })
 
 app.get('/AboutUs', checkNotAuthenticated, (req, res) => {
-    res.render('ticket.ejs')
+    res.render('AboutUs.ejs')
 })
 
 app.get('/Help', checkNotAuthenticated, (req, res) => {
@@ -102,4 +102,4 @@ function checkNotAuthenticated(req, res, next) {
     next()
 }
 
-app.listen(process.env.PORT ||3000)
+app.listen(process.env.PORT || 3000)
