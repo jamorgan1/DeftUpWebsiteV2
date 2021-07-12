@@ -56,22 +56,13 @@
 <!--</form>-->
 <!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
 
-<% workers.forEach(worker => { %>
-<!--    <h1 style="text-align:center">Defter Profile Card</h1>-->
-    <div class="card">
-        <img src="../img/<%= worker.skill %>.jpg" style="width:100%">
-        <h1 style="text-align:center"><%= worker.firstname %> <%= worker.lastname %></h1>
-        <p class="title"><%= worker.skill %></p>
-        <p><%= worker.address %></p>
-        <p><%= worker.phone %></p>
-        <p><%= worker.email %></p>
 
-        <div style="margin: 24px 0;">
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-        </div>
-        <p><button>Contact</button></p>
-    </div>
-<% }) %>
+
+<div>
+    <% workers.forEach(worker => { %>
+    <%= worker.firstname %> <%= worker.lastname %>
+        <%= worker.skill %>
+        <%= worker.address %>
+        <%= worker.email %>
+    <% }) %>
+</div>
