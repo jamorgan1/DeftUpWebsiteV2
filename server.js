@@ -23,12 +23,13 @@ db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose'))
 
 const passport = require('passport')
-const initializePassport = require('./passport-config')
-initializePassport(
-    passport,
-        email => users.find(user => user.email === email),
-    id => users.find(user => user.id === id)
-)
+// const initializePassport = require('./passport-config')
+// initializePassport(
+//     passport,
+//         email => worker.find(user => worker.email === email),
+//     id => worker.find(user => worker.id === id)
+// )
+require('./passport-config')(passport)
 
 app.set('view-engine', 'ejs')
 app.set('views', __dirname + '/views')
