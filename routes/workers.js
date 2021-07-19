@@ -33,9 +33,7 @@ router.post('/', checkNotAuthenticated, async (req, res) => {
     }
     
     if (errors.length > 0) {
-    	res.render('workers/DefterAccount.ejs', {
-            worker: worker
-        })
+    	res.render('workers/DefterAccount.ejs')
     } else {
     	const hashedPassword = await bcrypt.hash(req.body.password, 10)
 	    const worker = new Worker({ lastname: req.body.last,
