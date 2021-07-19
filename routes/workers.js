@@ -31,6 +31,17 @@ router.post('/', checkNotAuthenticated, async (req, res) => {
     if (req.body.password != req.body.password2) {
         errors.push({msg: 'Passwords do not match'})
     }
+    Worker.findOne({email: req.body.email})
+        .then(worker => {
+            if (worker) {
+                // User exists
+                errors.push({msg: 'Email already exists'})
+                console.log("Email already exists")
+                // res.render('workers/DefterAccount.ejs', {
+                //     worker: worker
+                // })
+            }
+        })
     
     if (errors.length > 0) {
     	res.render('workers/DefterAccount.ejs')
@@ -67,7 +78,6 @@ router.post('/', checkNotAuthenticated, async (req, res) => {
     //         worker: worker
     //     })
     // }
-    // console.log(users)
 })
 
 router.get('/Categories', checkNotAuthenticated, (req, res) => {
