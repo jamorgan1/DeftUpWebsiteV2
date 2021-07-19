@@ -27,24 +27,48 @@ router.get('/DefterAccount', checkNotAuthenticated, (req, res) => {
 })
 
 router.post('/', checkNotAuthenticated, async (req, res) => {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    const worker = new Worker({ lastname: req.body.last,
-        firstname: req.body.first,
-        phone: req.body.phone,
-        gender: req.body.gender,
-        email: req.body.email,
-        address: req.body.address,
-        password: hashedPassword,
-        skill: req.body.skill
-    })
-    try {
-        const newWorker = await worker.save()
-        res.redirect('workers')
-    } catch {
-        res.render('workers/DefterAccount.ejs', {
+    let errors = []
+    if (req.body.password != req.body.password2) {
+        errors.push({msg: 'Passwords do not match'})
+    }
+    
+    if (errors.length > 0) {
+    	res.render('workers/DefterAccount.ejs', {
             worker: worker
         })
+    } else {
+    	const hashedPassword = await bcrypt.hash(req.body.password, 10)
+	    const worker = new Worker({ lastname: req.body.last,
+		firstname: req.body.first,
+		phone: req.body.phone,
+		gender: req.body.gender,
+		email: req.body.email,
+		address: req.body.address,
+		password: hashedPassword,
+		skill: req.body.skill
+	    })
+
+        const newWorker = await worker.save()
+        res.redirect('workers')
     }
+    // const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    // const worker = new Worker({ lastname: req.body.last,
+    //     firstname: req.body.first,
+    //     phone: req.body.phone,
+    //     gender: req.body.gender,
+    //     email: req.body.email,
+    //     address: req.body.address,
+    //     password: hashedPassword,
+    //     skill: req.body.skill
+    // })
+    // try {
+    //     const newWorker = await worker.save()
+    //     res.redirect('workers')
+    // } catch {
+    //     res.render('workers/DefterAccount.ejs', {
+    //         worker: worker
+    //     })
+    // }
     // console.log(users)
 })
 
