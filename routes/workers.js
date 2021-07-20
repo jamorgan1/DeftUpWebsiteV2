@@ -51,7 +51,6 @@ router.post('/', checkNotAuthenticated, async (req, res) => {
             phone: req.body.phone,
             gender: req.body.gender,
             email: req.body.email,
-            address: req.body.address,
             password: hashedPassword,
             skill: req.body.skill
         })
