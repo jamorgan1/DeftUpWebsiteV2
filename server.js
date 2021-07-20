@@ -65,7 +65,7 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 }))
 
 app.get('/Register', checkNotAuthenticated, (req, res) => {
-    res.render('Register.ejs')
+    res.render('workers/DefterAccount.ejs')
 })
 
 app.get('/CustomerAccount', checkNotAuthenticated, (req, res) => {
@@ -82,6 +82,10 @@ app.get('/AboutUs', checkNotAuthenticated, (req, res) => {
 
 app.get('/Help', checkNotAuthenticated, (req, res) => {
     res.render('Help.ejs')
+})
+
+app.get('/Hire', checkNotAuthenticated, (req, res) => {
+    res.render('hire.ejs')
 })
 
 app.delete('/logout', (req, res) => {

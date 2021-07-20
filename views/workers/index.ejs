@@ -1,4 +1,4 @@
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<title>Categories</title>
 <style>
     h1{text-align: center}
     input[type=submit] {
@@ -39,13 +39,14 @@
     <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Cleaning.png)" value="Cleaning">
     <br>
     <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Painting.jpg)" value="Painting">
-    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Mounting.jpg)" value="TV Mounting">
+    <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Mounting.jpg)" value="Mounting">
     <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Desk.jpg)" value="Desk Assembly">
 </form>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <% workers.forEach(worker => { %>
 <!--    <h1 style="text-align:center">Defter Profile Card</h1>-->
+<% if (worker.skill !== "blank") { %>
     <div class="card">
         <img src="../img/<%= worker.skill %>.jpg" style="width:100%">
         <h1 style="text-align:center"><%= worker.firstname %> <%= worker.lastname %></h1>
@@ -60,6 +61,7 @@
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-facebook"></i></a>
         </div>
-        <p><button>Contact</button></p>
+        <p><form action="/Hire" method="GET"><button>Contact</button></form></p>
     </div>
+<% }%>
 <% }) %>

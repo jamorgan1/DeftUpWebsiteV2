@@ -1,0 +1,88 @@
+    <style>
+        h1 {
+            text-align: center
+        }
+
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        .questions {
+            text-align: left;
+        }
+
+        label {
+            width: 480px;
+            display: inline-block;
+        }
+
+        input[type=text] {
+            display: inline-block;
+        }
+    </style>
+
+
+<div class="smart-wrap">
+    <div class="hire-section1">
+
+        <div class="form-header header-primary">
+            <h4><i class="fa fa-calendar"></i>Contact Defter Now</h4>
+        </div>
+
+        <form action="/" id="contact" method="post">
+            <div class="form-body">
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+<div class="questions">
+    <div class="section colm colm6">
+        <label class="field-label"> <strong>Desired Task Date</strong> </label>
+        <label class="field prepend-icon">
+            <input id="available" name="available" type="date">
+            <span class="field-icon"><i class="fa fa-calendar"></i></span>
+        </label>
+    </div>
+
+</div>
+
+
+<div class="questions">
+    <div class="option-group field">
+
+        <div class="section colm colm6">
+            <label class="switch">
+                <input id="switch2" name="switch2" type="checkbox" value="switch2">
+                <span class="switch-label" data-off="NO" data-on="YES"></span>
+                <span>Is this task urgent?</span>
+            </label>
+        </div>
+    </div>
+</div>
+
+
+<div class="questions">
+    <br><label class="field-label" for="comment"> <strong>Please give a short summary of what needs to be
+    done. </strong></label>
+    <label class="field prepend-icon" for="comment">
+        <p></p>
+        <br/><br/>
+        <p></p>
+        <textarea class="gui-textarea" id="comment" name="comment"
+                  placeholder="Please describe in detail."></textarea>
+        <span class="field-icon"><i class="fa fa-comments"></i></span>
+        <span class="input-hint">
+    </span>
+    </label>
+</div>
+
+<div class="form-footer">
+    <button class="button btn-primary" type="submit">Confirm Message</button>
+    <form action="/workers">
+    <button class="button btn-primary" > Cancel </button>
+    </form>
+</div>
+

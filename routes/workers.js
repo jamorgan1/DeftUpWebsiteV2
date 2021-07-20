@@ -35,31 +35,38 @@ router.post('/', checkNotAuthenticated, async (req, res) => {
         .then(worker => {
             if (worker) {
                 // User exists
-                errors.push({msg: 'Email already exists'})
                 console.log("Email already exists")
+                errors.push({msg: 'Email already exists'})
                 // res.render('workers/DefterAccount.ejs', {
                 //     worker: worker
                 // })
             }
         })
-    
     if (errors.length > 0) {
-    	res.render('workers/DefterAccount.ejs')
+        res.render('workers/DefterAccount.ejs', {errors})
     } else {
-    	const hashedPassword = await bcrypt.hash(req.body.password, 10)
-	    const worker = new Worker({ lastname: req.body.last,
-		firstname: req.body.first,
-		phone: req.body.phone,
-		gender: req.body.gender,
-		email: req.body.email,
-		address: req.body.address,
-		password: hashedPassword,
-		skill: req.body.skill
-	    })
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        const worker = new Worker({ lastname: req.body.last,
+            firstname: req.body.first,
+            phone: req.body.phone,
+            gender: req.body.gender,
+            email: req.body.email,
+            address: req.body.address,
+            password: hashedPassword,
+            skill: req.body.skill
+        })
 
-        const newWorker = await worker.save()
-        res.redirect('workers')
+        try {
+            const newWorker = await worker.save()
+            res.redirect('/login')
+            } catch {
+                res.render('workers/DefterAccount.ejs', {
+                    errors,
+                    worker: worker
+                })
+            }
     }
+
     // const hashedPassword = await bcrypt.hash(req.body.password, 10)
     // const worker = new Worker({ lastname: req.body.last,
     //     firstname: req.body.first,
@@ -70,11 +77,15 @@ router.post('/', checkNotAuthenticated, async (req, res) => {
     //     password: hashedPassword,
     //     skill: req.body.skill
     // })
+
+    
+    
     // try {
     //     const newWorker = await worker.save()
-    //     res.redirect('workers')
+    //     res.redirect('/login')
     // } catch {
     //     res.render('workers/DefterAccount.ejs', {
+    //         errors,
     //         worker: worker
     //     })
     // }
@@ -92,3 +103,4 @@ function checkNotAuthenticated(req, res, next) {
 }
 
 module.exports = router
+

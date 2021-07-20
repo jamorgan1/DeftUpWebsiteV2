@@ -1,42 +1,39 @@
-<h1 class = "middleR" style = "text-align: center"> Defter Account </h1>
-
+<h1 class = "middleR" style = "text-align: center"> Create User Account </h1>
+<style>
+    form {
+        text-align: center;
+        border-radius: 100px;
+        background-color: #f2f2f2;
+        padding: 50px;
+        padding-right: 50px;
+    }
+    input1 {background-color: orange}
+    input1 {color: whitesmoke}
+</style>
+<%- include('../partials/messages.ejs') %>
 <form action="/workers" name="myform" method="POST">
     <div>
-    <label type="text"> First Name: </label>
-    <input type="text" id="first" name="first" minlength="1" maxlength="20" required="true"><br><br>
+        <label type="text"> First Name: </label>
+        <input type="text" id="first" name="first" minlength="1" maxlength="20" required="true"><br><br>
     </div>
     <div>
-    Last Name:
-    <input type="text" id="last" name="last" minlength="1" maxlength="20" required="true"><br><br>
+        Last Name:
+        <input type="text" id="last" name="last" minlength="1" maxlength="20" required="true"><br><br>
     </div>
     Email:
-    <input type="text" id="email" name="email" required="true"><br><br>
-    Phone Number:
-    <input type="text" id="phone" name="phone" required="true"><br><br>
+    <input type="email" id="email" name="email" minlength="8" maxlength="30" required="true"><br><br>
+    Phone Number (format xxx-xxx-xxxx):
+    <input type="tel" id="phone" name="phone" pattern="^\d{3}-\d{3}-\d{4}$" required="true"><br><br>
     Gender:
-    <input type="radio" id="gender" name="gender" value="female">Female
-    <input type="radio" id="gender" name="gender" value="male">Male
-    <input type="radio" id="gender" name="gender" value="other">Other<br><br>
-    Full Home Address:
-    <input type = "text" id="address" name = "address"><br><br>
-    Age Group:
-    <select name="age_grp" size=1>
-        <option value="blank" selected></option>
-        <option value="grp1"><18 - 21 years old</option>
-        <option value="grp2">21 - 25 years old</option>
-        <option value="grp3">26 - 35 years old</option>
-        <option value="grp4">36 - 50 years old</option>
-        <option value="grp5">> 50 years old</option>
-    </select>
-    <br><br>
-    Create Username:
-    <input type="text" id="username" name="usrname" minlength="4" maxlength="12" required="true"><br><br>
+    <input type="radio" id="gender" name="gender" value="female" required="true">Female
+    <input type="radio" id="gender" name="gender" value="male" required="true">Male
+    <input type="radio" id="gender" name="gender" value="other" required="true">Other<br><br>
     Enter Password:
-    <input type="password" id="password" name="password" minlength="9"><br><br>
+    <input type="password" id="password" name="password" minlength="9" required="true"><br><br>
     Confirm Password:
-    <input type="password" id="password2" name="password2" minlength="9"><br>
+    <input type="password" id="password2" name="password2" minlength="9" required="true"><br>
     <br><br>
-    Category Skills (Select One): <br><br>
+    Category Skills (Selecting a skill creates a Defter account): <br><br>
     <input type="radio" name="skill" value="Bed Assembly"> Bed Assembly
     <input type="radio" name="skill"value="Cleaning"> Cleaning
     <input type="radio" name="skill" value="Desk Assembly">Desk Assembly <br><br>
@@ -55,3 +52,4 @@
     <!--<a href="Register.html" class="button" style = "font-family: 'Arial Black'">GET STARTED</a>-->
     <div id="output"></div>
 </form>
+<script type="text/javascript" src="TestDeftAcc.js"></script>
