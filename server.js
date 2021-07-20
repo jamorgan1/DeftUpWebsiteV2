@@ -76,15 +76,15 @@ app.get('/Categories', checkNotAuthenticated, (req, res) => {
     res.render('Categories.ejs')
 })
 
-app.get('/AboutUs', checkNotAuthenticated, (req, res) => {
+app.get('/AboutUs',(req, res) => {
     res.render('AboutUs.ejs')
 })
 
-app.get('/Help', checkNotAuthenticated, (req, res) => {
+app.get('/Help',(req, res) => {
     res.render('Help.ejs')
 })
 
-app.get('/Hire', checkNotAuthenticated, (req, res) => {
+app.get('/Hire',(req, res) => {
     res.render('hire.ejs')
 })
 
