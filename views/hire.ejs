@@ -1,88 +1,45 @@
-    <style>
-        h1 {
-            text-align: center
-        }
+<style>
+    input[type=text], select, textarea {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        margin-bottom: 16px;
+        border: 1px solid #070402;
+        border-radius: 4px;
 
-        body {
-            font-family: 'Trebuchet MS', sans-serif;
-        }
+    }
 
-        .questions {
-            text-align: left;
-        }
+    .container {
+        border-radius: 6px;
+        padding: 30px;
+        background-color: #f2f2f2;
 
-        label {
-            width: 480px;
-            display: inline-block;
-        }
+    }
 
-        input[type=text] {
-            display: inline-block;
-        }
-    </style>
+</style>
 
+<h2> Contact Defter Now</h2>
 
-<div class="smart-wrap">
-    <div class="hire-section1">
+<div class="container">
+    <form action="/Email" method="POST">
 
-        <div class="form-header header-primary">
-            <h4><i class="fa fa-calendar"></i>Contact Defter Now</h4>
-        </div>
-
-        <form action="/" id="contact" method="post">
-            <div class="form-body">
-            </div>
-        </form>
-
-    </div>
-</div>
-
-
-<div class="questions">
-    <div class="section colm colm6">
+        <label class="field-label"> <strong>Defter Email Address: </strong></label>
+        <input type="email" id="demail" name="demail" minlength="8" maxlength="30" value="<%= demail %>" required="true"><br>
         <label class="field-label"> <strong>Desired Task Date</strong> </label>
         <label class="field prepend-icon">
             <input id="available" name="available" type="date">
             <span class="field-icon"><i class="fa fa-calendar"></i></span>
         </label>
-    </div>
+        <br> <br>
+        <label for="subject"> <strong>Please give a short summary of what needs to be
+                done.</strong></label>
+        <textarea id="message" name="message" placeholder="Please describe in detail.." style="height:200px"></textarea>
 
-</div>
-
-
-<div class="questions">
-    <div class="option-group field">
-
-        <div class="section colm colm6">
-            <label class="switch">
-                <input id="switch2" name="switch2" type="checkbox" value="switch2">
-                <span class="switch-label" data-off="NO" data-on="YES"></span>
-                <span>Is this task urgent?</span>
-            </label>
-        </div>
-    </div>
-</div>
-
-
-<div class="questions">
-    <br><label class="field-label" for="comment"> <strong>Please give a short summary of what needs to be
-    done. </strong></label>
-    <label class="field prepend-icon" for="comment">
-        <p></p>
-        <br/><br/>
-        <p></p>
-        <textarea class="gui-textarea" id="comment" name="comment"
-                  placeholder="Please describe in detail."></textarea>
-        <span class="field-icon"><i class="fa fa-comments"></i></span>
-        <span class="input-hint">
-    </span>
-    </label>
-</div>
-
-<div class="form-footer">
-    <button class="button btn-primary" type="submit">Confirm Message</button>
-    <form action="/workers">
-    <button class="button btn-primary" > Cancel </button>
+        <button class="button btn-primary" type="submit">Send Message</button>
     </form>
-</div>
+        <form action="/workers" method="GET">
+            <button class="button btn-primary"> Cancel</button>
+        </form>
 
+</div>

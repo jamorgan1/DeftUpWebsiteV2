@@ -10,6 +10,8 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 
+var nodemailer = require('nodemailer')
+
 const indexRouter = require('./routes/index')
 const workerRouter = require('./routes/workers')
 
@@ -76,16 +78,60 @@ app.get('/Categories', checkNotAuthenticated, (req, res) => {
     res.render('Categories.ejs')
 })
 
-app.get('/AboutUs',(req, res) => {
+app.get('/AboutUs', (req, res) => {
     res.render('AboutUs.ejs')
 })
 
-app.get('/Help',(req, res) => {
+app.get('/Help', (req, res) => {
     res.render('Help.ejs')
 })
 
-app.get('/Hire',(req, res) => {
+app.get('/Hire', (req, res) => {
     res.render('hire.ejs')
+})
+
+app.post('/Hire', checkAuthenticated, (req, res) => {
+    console.log(req.body)
+    res.render('hire.ejs',
+        {demail: req.body.demail, fname: req.user.firstname, lname: req.user.lastname, skill: req.user.skill, address: req.user.address, phone: req.user.phone, email: req.user.email})
+})
+
+app.post('/Email', checkAuthenticated, (req, res) => {
+    console.log(req.body)
+    const output = `
+    <p>You have a new contact request</p>
+    <h3>Contact Details</h3>
+    <ul>
+        <li>Date Requested: ${req.body.available}</li>
+        <li>Customer Email: ${req.user.email}</li>
+    </ul>
+    <h3>Message</h3>
+    <p>${req.body.message}</p>
+    `
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'deftupreports@gmail.com',
+            pass: 'deftupcodered'
+        }
+    })
+
+    let maillist = [req.body.demail, req.user.email]
+
+    var mailOptions = {
+        from: 'deftupreports@gmail.com',
+        to: maillist,
+        subject: 'DeftUp messaging service',
+        text: ``,
+        html: output
+    }
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error)
+            console.log(error)
+        else
+            console.log('Email sent: ' + info.response)
+    })
 })
 
 app.delete('/logout', (req, res) => {

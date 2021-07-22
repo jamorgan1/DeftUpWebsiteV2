@@ -23,13 +23,6 @@
 
 <h1>Choose Your Category</h1>
 <form action="/workers" method="GET">
-    <!--    <div class = "portfolio-img-background">-->
-    <!--        <input type="submit" name="skill" class = "btn" style="background-image: url(img/Bed2.jpg)" value="" style="font-family: 'Arial Black'">-->
-    <!--    </div>-->
-    <!--    <div class = "logo-wrapper">-->
-    <!--        <h1 class = "category-title"> Bed Assembly </h1>-->
-    <!--    </div>-->
-
     <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Bed2.jpg)" value="Bed Assembly" style="font-family: 'Arial Black'"> <!--  THIS LINE IS WHERE THE BUTTON IS&ndash;&gt;&ndash;&gt;-->
     <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Plumbing.jpg)" value="Plumbing">
     <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Electrical.jpg)" value="Electrical">
@@ -42,18 +35,20 @@
     <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Mounting.jpg)" value="Mounting">
     <input type="submit" name="skill" class = "btn" style="background-image: url(../img/Desk.jpg)" value="Desk Assembly">
 </form>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
 
 <% workers.forEach(worker => { %>
 <!--    <h1 style="text-align:center">Defter Profile Card</h1>-->
 <% if (worker.skill !== "blank") { %>
     <div class="card">
+        <form action="/Hire" method="POST">
         <img src="../img/<%= worker.skill %>.jpg" style="width:100%">
         <h1 style="text-align:center"><%= worker.firstname %> <%= worker.lastname %></h1>
         <p class="title"><%= worker.skill %></p>
         <p><%= worker.address %></p>
         <p><%= worker.phone %></p>
-        <p><%= worker.email %></p>
+            <input type="text" name="demail" value="<%= worker.email %>">
+<!--        <p><%= worker.email %></p>-->
 
         <div style="margin: 24px 0;">
             <a href="#"><i class="fa fa-dribbble"></i></a>
@@ -61,7 +56,7 @@
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-facebook"></i></a>
         </div>
-        <p><form action="/Hire" method="GET"><button>Contact</button></form></p>
+        <p><button type="submit">Contact</button></p></form>
     </div>
 <% }%>
 <% }) %>

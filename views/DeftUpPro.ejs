@@ -1,19 +1,94 @@
-<title>Home</title>
-<div class = "Home1">
-    <div1 class="HomeDesc2">
-        <h1 class = "head-title" style = "font-family: Calibri"> WELCOME TO DEFTUP </h1>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<!--Get your own code at fontawesome.com-->
+<style>
+    div {text-align: center}
+    body {
+        font-family: 'Trebuchet MS', sans-serif;
+        background-color: white;
+    }
+    .Home1{
+        background-color: silver;
+    }
+    .head-title{
+        font-size: 50px;
+    }
 
-        <p class = para-title" style = "font-family: Calibri"> DeftUp provides people with assistance in certain jobs/tasks that
-        they can't get to or do not know how to accomplish. This will include tasks
-        like around-the-house yardwork, mounting, furniture assembly and much more. This website
-        will create more jobs for 1-person businesses and provide the consumers that are hiring
-        to get tasks done with more freedom and flexibility to take care of other jobs/tasks that they have.
+
+    /* The hero image */
+    .hero-image {
+        /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./img/Desk3.jpg");
+
+        /* Set a specific height */
+        height: 500px;
+
+        /* Position and center the image to scale nicely on all screens */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    /* Place text in the middle of the image */
+    .hero-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+    .head-title{
+        font-size: 50px;
+        text-decoration-color: orange;
+    }
+    footer{
+        text-align: center;
+        padding: 50px;
+    }
+    .defter2{
+        float: right
+    }
+    .customer2{
+        float: left;
+    }
+
+</style>
+<title>Home</title>
+<div class = "hero-image">
+    <div class="hero-text">
+        <h1 class = "head-title" style = "color: orange; font-family: Calibri; font-size: 75px"> WELCOME TO DEFTUP </h1>
+
+        <p class = para-title" style = "font-family: Calibri; font-size: 18px">
+            DeftUp provides people with assistance in certain jobs/tasks that
+            they can't get to or do not know how to accomplish. This will include tasks
+            like around-the-house yardwork, mounting, furniture assembly and much more. This website
+            will create more jobs for 1-person businesses and provide the consumers that are hiring
+            to get tasks done with more freedom and flexibility to take care of other jobs/tasks that they have.
         </p>
 
-        <a href="/Register" class="button" style = "font-family: 'Arial Black'">GET STARTED</a>
+        <a href="Register.html" class="button" style = "font-family: 'Arial Black'; font-size: 20px">GET STARTED</a>
 
-    </div1>
-    <div class="HomeImg2">
-        <img src="./img/HandymanHome2.jpg" alt = "Handyman" width="500" height="300">
     </div>
 </div>
+
+<!--    <div class = "container2">-->
+<!--        <div class = "defter1">-->
+<!--            <div class = "defter2">-->
+<!--                <img src="./img/test2.png" alt = "DeftUp" width="200" height="300">-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class = "customer1">-->
+<!--            <div class = "customer2">-->
+<!--                <img src="./img/test1.jpg"   alt = "DeftUp" width="200" height="300">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+</div>
+
+<footer>
+    <a href = "TandC.html" style="font-family: Calibri; color: orange; font-size: 25px"><i style='font-size:20px; color: orange' class='fas'>&#xf044;</i>Terms & Conditions</a>
+
+</footer>

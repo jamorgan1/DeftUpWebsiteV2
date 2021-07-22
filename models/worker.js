@@ -27,6 +27,7 @@ const workerSchema = new mongoose.Schema({
     },
     skill: {
         type: String,
+        default: "blank",
         required: false
     },
 })

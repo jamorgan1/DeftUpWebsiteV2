@@ -43,6 +43,7 @@ router.post('/', checkNotAuthenticated, async (req, res) => {
             }
         })
     if (errors.length > 0) {
+        console.log("There is an error")
         res.render('workers/DefterAccount.ejs', {errors})
     } else {
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
@@ -59,6 +60,7 @@ router.post('/', checkNotAuthenticated, async (req, res) => {
             const newWorker = await worker.save()
             res.redirect('/login')
             } catch {
+            console.log("There is an error")
                 res.render('workers/DefterAccount.ejs', {
                     errors,
                     worker: worker
@@ -102,4 +104,3 @@ function checkNotAuthenticated(req, res, next) {
 }
 
 module.exports = router
-
