@@ -1,4 +1,83 @@
-<title>Help</title>
+<title>Help Page</title>
+<style>
+    h1 {
+        text-align: center
+    }
+
+    .container1 {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 85%;
+
+        max-width: 80rem;
+
+        margin: 0 auto;
+
+        padding: 0 1.5rem;
+    }
+
+    .accordion-item {
+        background-color: orange;
+        border-radius: .4rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        box-shadow: .5rem 2px .5rem rgba(0, 0, 0, .1);
+
+    }
+
+    .accordion-link {
+        font-size: 1.2rem;
+        color: rgb(238, 238, 238);
+        text-decoration: none;
+        background-color: orange;
+        width: 85%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+    }
+
+    .accordion-item:target .answer {
+        max-height: 20rem;
+
+    }
+
+    .answer p {
+        font-size: 1.6rem;
+        color: rgb(255, 255, 255);
+        padding: 2rem;
+    }
+
+
+    .accordion-link r {
+        color: orange;
+    }
+
+
+    .answer {
+        overflow: hidden;
+        max-height: 0;
+        position: relative;
+        background-color: darkorange;
+        transition: max-height 65ms;
+    }
+
+    .answer:before {
+        content: "";
+        position: absolute;
+        width: .6rem;
+        height: 85%;
+        background-color: darkorange;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+</style>
+
 <h1>Frequently Asked Questions</h1>
 
 <!--<h3>Here is a list of resources to use in case you have a question regarding DeftUP.</h3>-->
@@ -72,9 +151,10 @@
                 </a>
                 <div class="answer">
                     <p>
-                        To delete your account, go to your accounts page and click the delte button at the bottom of the
-                        page.
-                        Please note that this action is permanent.
+                        In order to delete your account, please email deftupreports@gmail.com and state
+                        that you would like to delete your account.
+                        Please note that you will receive a response and your account
+                        will be deleted within 48 hours.
                     </p>
                 </div>
             </div>
@@ -101,7 +181,7 @@
                 </a>
                 <div class="answer">
                     <p>
-                        In order to report a user, please click here.
+                        In order to report a user, please click <a href="/Report">here.</a>
                         Please note that you will receive a response within 48 hours.
                     </p>
                 </div>

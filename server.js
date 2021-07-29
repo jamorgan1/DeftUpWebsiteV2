@@ -99,11 +99,12 @@ app.post('/Hire', checkAuthenticated, (req, res) => {
 app.post('/Email', checkAuthenticated, (req, res) => {
     console.log(req.body)
     const output = `
-    <p>You have a new contact request</p>
+    <p>New task created</p>
     <h3>Contact Details</h3>
     <ul>
         <li>Date Requested: ${req.body.available}</li>
         <li>Customer Email: ${req.user.email}</li>
+        <li>Defter Email: ${req.body.demail}</li>
     </ul>
     <h3>Message</h3>
     <p>${req.body.message}</p>
@@ -129,14 +130,28 @@ app.post('/Email', checkAuthenticated, (req, res) => {
     transporter.sendMail(mailOptions, function (error, info) {
         if (error)
             console.log(error)
-        else
+        else {
             console.log('Email sent: ' + info.response)
+            res.render('sentmessage.ejs')
+        }
     })
 })
 
 app.delete('/logout', (req, res) => {
     req.logOut()
     res.redirect('/login')
+})
+
+app.get('/Report', (req, res) => {
+    res.render('Report.ejs')
+})
+
+app.get('/TandC', (req, res) => {
+    res.render('TandC.ejs')
+})
+
+app.get('/Sent', (req, res) => {
+    res.render('sentmessage.ejs')
 })
 
 function checkAuthenticated(req, res, next) {
